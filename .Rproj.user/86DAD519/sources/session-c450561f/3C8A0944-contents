@@ -1,0 +1,39 @@
+#' Balance Gene
+#'
+#' Calculates the class balance score of a dataset.
+#'
+#' @param data A data frame.
+#'
+#' @return A list containing class balance statistics.
+#' @export
+
+balance_gene <- function(data){
+
+  # Check input
+  if(!is.data.frame(data)){
+    stop("Input must be a data frame.")
+  }
+
+  # Use the last column as the target variable
+  target <- data[[ncol(data)]]
+
+  # Count each class
+  class_counts <- table(target)
+
+  # Largest class
+  largest <- max(class_counts)
+
+  # Smallest class
+  smallest <- min(class_counts)
+
+  # Calculate balance score
+  balance_score <- round((smallest / largest) * 100, 2)
+
+  list(
+    ClassDistribution = class_counts,
+    LargestClass = largest,
+    SmallestClass = smallest,
+    BalanceScore = balance_score
+  )
+
+}

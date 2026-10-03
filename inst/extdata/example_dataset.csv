@@ -1,0 +1,9 @@
+age,income,segment,churn
+25,50000,A,No
+30,65000,B,Yes
+41,70000,A,No
+,80000,B,Yes
+52,91000,A,No
+47,62000,B,No
+31,72000,A,Yes
+44,68000,B,No

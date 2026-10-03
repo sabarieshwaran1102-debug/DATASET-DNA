@@ -1,0 +1,61 @@
+---
+title: "DatasetDNA Overview"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{DatasetDNA Overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+DatasetDNA is a compact package for quickly assessing the quality and readiness of a dataset for machine learning. It summarizes key dimensions of a dataset through a set of score-based "gene" metrics.
+
+# Quick start
+
+```{r setup}
+library(DatasetDNA)
+```
+
+```{r}
+example_path <- system.file("extdata", "example_dataset.csv", package = "DatasetDNA")
+example_df <- read.csv(example_path)
+
+example_df
+```
+
+# Full dataset analysis
+
+```{r}
+report <- dataset_dna(example_df, target = "churn")
+print(report)
+```
+
+# Interpreting the output
+
+The package returns a structured report that includes:
+
+- dataset summary
+- quality score
+- completeness score
+- complexity score
+- balance score
+- correlation score
+- overall DNA score
+- health status
+- recommended model type
+
+These metrics are designed to help with early exploratory analysis and machine-learning readiness checks.
+
+# Practical notes
+
+- Use a target column when you want class balance to be measured explicitly.
+- The package is best used for fast exploratory and comparative checks rather than formal model evaluation.
+- If a dataset has insufficient numeric columns, the correlation score falls back to a safe default rather than stopping the workflow.

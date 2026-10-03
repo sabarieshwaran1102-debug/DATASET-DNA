@@ -1,0 +1,23 @@
+Package: DatasetDNA
+Type: Package
+Title: Dataset quality and ML readiness assessment
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "DatasetDNA",
+      "Maintainer",
+      email = "maintainer@example.com",
+      role = c("aut", "cre")
+    )
+  )
+Description: Provides a lightweight set of dataset quality and readiness scores
+    for exploratory data analysis and machine learning preparation.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Suggests:
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Config/roxygen2/version: 8.0.0
+RoxygenNote: 7.3.2
